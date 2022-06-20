@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content%}
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}
+
+{% if api %}
+    {% if api == "Error..." %}
+        There was a problem with your symbol, please try again.
+    {% else %}
+        <h1>{{ api.companyName }}</h1>
+        <br/>
+        Price: ${{ api.latestPrice }}<br/>
+        Market cap: {{ api.marketCap }}<br/>
+        YTD change: {{ api.ytdChange }}<br/>
+
+
+        <!-- {% for key, values in api.items %}
+            {{ key }} : {{ value }}
+            <br/>
+        {% endfor %} -->
+    {% endif %}
+{% endif %}
+
+{% endblock %}
+
+
