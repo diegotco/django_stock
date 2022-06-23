@@ -34,7 +34,11 @@
                         <td>${{ list_item.marketCap }}</td>
                         <td>{{ list_item.ytdChange }}</td>
                         <td>
-                            {{forloop.counter}}
+                           
+                            {% for item in ticker %}
+                                {{ ticker.forloop.counter0 }}
+                                {{item}}-<a href="{% url 'delete' item.id %}" <button type="button" class="btn btn-info">Delete Stock</button></a></br>
+                            {% endfor %}
                             
                             
                             
